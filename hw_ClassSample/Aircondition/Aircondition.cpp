@@ -8,7 +8,7 @@ class Airconditional
 public:
 	Airconditional() { }
 
-	bool PowerCheck() { return power; }
+	bool PowerCheck() const { return power; }
 	void SetPower() { power = !power; }
 
 	void SetDegree(int C) { degree = C; }
@@ -22,11 +22,9 @@ public:
 		{
 			return;
 		}
-		
 
 		while (1)
 		{
-
 			if (GetTickCount() % 10000 == 0)
 			{
 				system("cls");
@@ -36,6 +34,7 @@ public:
 		}
 
 	}
+
 
 private:
 	bool power = false;
