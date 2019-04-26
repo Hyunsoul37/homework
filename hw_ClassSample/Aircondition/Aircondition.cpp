@@ -25,7 +25,7 @@ public:
 
 		while (1)
 		{
-			if (GetTickCount() % 10000 == 0)		//쓰는법은 잘모르나 검색해서 썼습니다.
+			if (GetTickCount() % 1000 == 0)			//쓰는법은 잘모르나 검색해서 썼습니다.
 			{
 				system("cls");
 				cout << "Now Degree : " << degree << endl;

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vld.h>
 using namespace std;
 class Phone
 {
