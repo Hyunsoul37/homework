@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <Windows.h>
-#include <conio.h>	/// í‚¤ë³´ë“œ ì“°ê¸°ìœ„í•œ í•¨ìˆ˜ ì¶”ê°€
+#include <conio.h>	/// Å°º¸µå ¾²±âÀ§ÇÑ ÇÔ¼ö Ãß°¡
 using namespace std;
 
 class Airconditional
@@ -9,97 +9,97 @@ class Airconditional
 public:
 	Airconditional() { }
 
-	bool PowerCheck() const { return power; }		// ì „ì› ON / OFF í™•ì¸í•©ë‹ˆë‹¤.
-	void SetPower() { power = !power; }				// ì „ì›ì„ ë°˜ëŒ€ë¡œ ë§Œë“­ë‹ˆë‹¤.
+	bool PowerCheck() const { return power; }		// Àü¿ø ON / OFF È®ÀÎÇÕ´Ï´Ù.
+	void SetPower() { power = !power; }				// Àü¿øÀ» ¹İ´ë·Î ¸¸µì´Ï´Ù.
 
 	void SetDegree(int C) { degree = C; }
-	int GetDegree() const { return degree; }		//ì¶œë ¥ë§Œ í•˜ê¸°ì— constë¥¼ ë¶™í˜”ìŠµë‹ˆë‹¤.
+	int GetDegree() const { return degree; }		//Ãâ·Â¸¸ ÇÏ±â¿¡ const¸¦ ºÙÇû½À´Ï´Ù.
 
-	void DegreeControl()							//ì—ì–´ì»¨ì´ ì¼œì§€ë©´ ì¼ì • ì‹œê°„ ë’¤ ì˜¨ë„ê°€ ë‚´ë ¤ê°€ë„ë¡ í–ˆìŠµë‹ˆë‹¤.
+	void DegreeControl()							//¿¡¾îÄÁÀÌ ÄÑÁö¸é ÀÏÁ¤ ½Ã°£ µÚ ¿Âµµ°¡ ³»·Á°¡µµ·Ï Çß½À´Ï´Ù.
 	{
 		bool power = PowerCheck();
 
-		if (power == false)							//ì „ì›ì´ OFFë©´ ì‘ë™í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+		if (power == false)							//Àü¿øÀÌ OFF¸é ÀÛµ¿ÇÏÁö ¾Ê½À´Ï´Ù.
 		{
 			return;
 		}
 
 		while (1)
 		{
-			if (GetTickCount() % 1000 == 0)			//ì“°ëŠ”ë²•ì€ ì˜ëª¨ë¥´ë‚˜ ê²€ìƒ‰í•´ì„œ ì¼ìŠµë‹ˆë‹¤.
+			if (GetTickCount() % 1000 == 0)			//¾²´Â¹ıÀº Àß¸ğ¸£³ª °Ë»öÇØ¼­ ½è½À´Ï´Ù.
 			{
 				system("cls");
 				cout << "Now Degree : " << degree << endl;
 				degree--;
 
-				if (kbhit())	/// í‚¤ë³´ë“œ ìœ„ë²„íŠ¼ ëˆ„ë¥¼ ì‹œ ì—ì–´ì»¨ ì¢…ë£Œ.
+				if (kbhit())	/// Å°º¸µå À§¹öÆ° ´©¸¦ ½Ã ¿¡¾îÄÁ Á¾·á.
 				{
 					key = getch();
 
 					switch (key)
 					{
 					case 72:
-						cout << "ì ì‹œ í›„ ì—ì–´ì»¨ì´ êº¼ì§‘ë‹ˆë‹¤." << endl;
-						UpDegree();	/// ê·¸ë¦¬ê³  ì—ì–´ì»¨ì„ ê»ìœ¼ë¯€ë¡œ ë‹¤ì‹œ ì˜¨ë„ ìƒìŠ¹
+						cout << "Àá½Ã ÈÄ ¿¡¾îÄÁÀÌ ²¨Áı´Ï´Ù." << endl;
+						UpDegree();	/// ±×¸®°í ¿¡¾îÄÁÀ» ²°À¸¹Ç·Î ´Ù½Ã ¿Âµµ »ó½Â
 						break;
 					}
 				}
 
-				if (degree < 15)	/// ì ì •ì˜¨ë„ 15ë„ ë˜ë©´ ìë™ìœ¼ë¡œ ì¢…ë£Œ.
+				if (degree < 15)	/// ÀûÁ¤¿Âµµ 15µµ µÇ¸é ÀÚµ¿À¸·Î Á¾·á.
 				{
-					cout << "ì ì •ì˜¨ë„ ë„ë‹¬. ì „ì›ì„ ì¢…ë£Œí•˜ê² ìŠµë‹ˆë‹¤." << endl;
-					UpDegree();		/// ê·¸ë¦¬ê³  ì—ì–´ì»¨ì„ ê»ìœ¼ë¯€ë¡œ ë‹¤ì‹œ ì˜¨ë„ ìƒìŠ¹
+					cout << "ÀûÁ¤¿Âµµ µµ´Ş. Àü¿øÀ» Á¾·áÇÏ°Ú½À´Ï´Ù." << endl;
+					UpDegree();		/// ±×¸®°í ¿¡¾îÄÁÀ» ²°À¸¹Ç·Î ´Ù½Ã ¿Âµµ »ó½Â
 				}
 			}
 		}
 	}
 
-	void UpDegree()	/// ì¶”ê°€í•œ í•¨ìˆ˜, ì—ì–´ì»¨ êº¼ì¡Œì„ì‹œ ì˜¨ë„ ìƒìŠ¹
+	void UpDegree()	/// Ãß°¡ÇÑ ÇÔ¼ö, ¿¡¾îÄÁ ²¨Á³À»½Ã ¿Âµµ »ó½Â
 	{
 		bool power = PowerCheck();
 
-		if (power == false)							//ì „ì›ì´ OFFë©´ ì‘ë™í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+		if (power == false)							//Àü¿øÀÌ OFF¸é ÀÛµ¿ÇÏÁö ¾Ê½À´Ï´Ù.
 		{
 			return;
 		}
 
 		while (1)
 		{
-			if (GetTickCount() % 1000 == 0)			//ì“°ëŠ”ë²•ì€ ì˜ëª¨ë¥´ë‚˜ ê²€ìƒ‰í•´ì„œ ì¼ìŠµë‹ˆë‹¤.
+			if (GetTickCount() % 1000 == 0)			//¾²´Â¹ıÀº Àß¸ğ¸£³ª °Ë»öÇØ¼­ ½è½À´Ï´Ù.
 			{
 				system("cls");
 				cout << "Now Degree : " << degree << endl;
 				degree++;
 
-				if (kbhit())	/// í‚¤ë³´ë“œ ìœ„ë²„íŠ¼ ëˆ„ë¥¼ ì‹œ ì—ì–´ì»¨ ì‘ë™.
+				if (kbhit())	/// Å°º¸µå À§¹öÆ° ´©¸¦ ½Ã ¿¡¾îÄÁ ÀÛµ¿.
 				{
 					key = getch();
 
 					switch (key)
 					{
 					case 72:
-						cout << "ì ì‹œ í›„ ì—ì–´ì»¨ì´ ì¼œì§‘ë‹ˆë‹¤." << endl;
-						DegreeControl();	/// ê·¸ë¦¬ê³  ì—ì–´ì»¨ì„ ì¼°ìœ¼ë¯€ë¡œ ë‹¤ì‹œ ì˜¨ë„ ê°ì†Œ
+						cout << "Àá½Ã ÈÄ ¿¡¾îÄÁÀÌ ÄÑÁı´Ï´Ù." << endl;
+						DegreeControl();	/// ±×¸®°í ¿¡¾îÄÁÀ» Ä×À¸¹Ç·Î ´Ù½Ã ¿Âµµ °¨¼Ò
 						break;
 					}
 				}
 
-				if (degree > 30)		/// í•œê³„ì˜¨ë„ 30ë„ ë˜ë©´ ìë™ìœ¼ë¡œ ì‘ë™.
+				if (degree > 30)		/// ÇÑ°è¿Âµµ 30µµ µÇ¸é ÀÚµ¿À¸·Î ÀÛµ¿.
 				{
-					cout << "ì„¤ì •ì˜¨ë„ ê°ì§€. ì—ì–´ì»¨ì„ ê°€ë™í•˜ê² ìŠµë‹ˆë‹¤." << endl;
-					DegreeControl();	/// ê·¸ë¦¬ê³  ì—ì–´ì»¨ì„ ì¼°ìœ¼ë¯€ë¡œ ë‹¤ì‹œ ì˜¨ë„ ê°ì†Œ
+					cout << "¼³Á¤¿Âµµ °¨Áö. ¿¡¾îÄÁÀ» °¡µ¿ÇÏ°Ú½À´Ï´Ù." << endl;
+					DegreeControl();	/// ±×¸®°í ¿¡¾îÄÁÀ» Ä×À¸¹Ç·Î ´Ù½Ã ¿Âµµ °¨¼Ò
 				}
 			}
 		}
 	}
 
 private:
-	bool power = false;								//falseë©´ OFF, trueë©´ ONìœ¼ë¡œ ì„¤ì • í–ˆìŠµë‹ˆë‹¤.
+	bool power = false;								//false¸é OFF, true¸é ONÀ¸·Î ¼³Á¤ Çß½À´Ï´Ù.
 
-	int key;	///	í‚¤ë³´ë“œê°’ ë°›ì•„ì˜¤ê¸°
+	int key;	///	Å°º¸µå°ª ¹Ş¾Æ¿À±â
 
 	int degree = 0;
-	size_t Time = 0;								//ì‹œê°„ ê°’ì¸ë° ë§ˆì´ë„ˆìŠ¤ëŠ” ì•ˆë‚˜ì˜¬êº¼ê°™ì•„ size_të¡œ ì„ ì–¸ í–ˆìŠµë‹ˆë‹¤.
+	size_t Time = 0;								//½Ã°£ °ªÀÎµ¥ ¸¶ÀÌ³Ê½º´Â ¾È³ª¿Ã²¨°°¾Æ size_t·Î ¼±¾ğ Çß½À´Ï´Ù.
 };
 
 int main()
@@ -110,6 +110,6 @@ int main()
 	air.SetPower();
 	air.DegreeControl();
 
-	getchar();										//í™”ì´íŒ…!
+	getchar();										//È­ÀÌÆÃ!
 	return 0;
 }
